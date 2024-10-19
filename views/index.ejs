@@ -1,0 +1,62 @@
+<%- include('partials/header.ejs'); -%> <!-- Include the header partial, which contains the common header content -->
+
+<div class="box" id="heading">
+  <h1>
+    <%= listTitle %> <!-- Display the dynamic list title (e.g., "Today") -->
+  </h1>
+</div>
+
+<div class="box">
+  <!-- Loop through each item in the listItems array to display it on the page -->
+  <% for(let item of listItems){ %> 
+    <div class="item">
+      <!-- Form for deleting an item, using a checkbox. The item will be deleted when the checkbox is checked -->
+      <form action="/delete" method="post">
+        <input type="checkbox" onchange="this.form.submit()" name="deleteItemId" value="<%= item.id %>"> 
+      </form>
+
+      <!-- Display the item title. The 'id' is dynamically set based on the item's unique ID for later reference -->
+      <p id="title<%=item.id%>">
+        <%= item.title %> <!-- Output the item's title (e.g., 'Buy milk') -->
+      </p>
+
+      <!-- Form for editing an item, which includes hidden input fields until the user clicks the edit button -->
+      <form class="edit" action="/edit" method="post">
+        <!-- Hidden input to store the item's unique ID for editing -->
+        <input type="hidden" name="updatedItemId" value="<%= item.id %>">
+        
+        <!-- Input for updating the item title, hidden by default until the user clicks edit -->
+        <input id="input<%=item.id%>" type="text" name="updatedItemTitle" value="<%= item.title %>" 
+          autocomplete="off" autofocus="true" hidden="true" />
+        
+        <!-- Submit button for the edit form, hidden until the user clicks edit -->
+        <button id="done<%=item.id%>" class="edit" type="submit" hidden>
+          <img class="icon" src="/assets/icons/check-solid.svg" alt="tick image"> 
+        </button>
+      </form>
+
+      <!-- Edit button. When clicked, it will reveal the form to edit the item title -->
+      <button id="edit<%=item.id%>" class="edit" onclick="handler('<%=item.id%>')">
+        <img class="icon" src="/assets/icons/pencil-solid.svg" alt="pencil image"> <!-- Display a pencil icon for the edit button -->
+      </button>
+    </div>
+  <% } %> 
+
+  <!-- Form to add a new item to the list -->
+  <form class="item" action="/add" method="post">
+    <input type="text" name="newItem" placeholder="New Item" autocomplete="off" autofocus="true" /> 
+    <button class="add" type="submit" name="list" value=<%=listTitle %>>+</button> 
+  </form>
+</div>
+
+<script>
+  // Function to handle the editing of items
+  function handler(id) {
+    document.getElementById("title" + id).setAttribute("hidden", true); // Hide the original item title
+    document.getElementById("edit" + id).setAttribute("hidden", true); // Hide the edit button
+    document.getElementById("done" + id).removeAttribute("hidden"); // Show the submit button for editing
+    document.getElementById("input" + id).removeAttribute("hidden"); // Show the input field to edit the item title
+  }
+</script>
+
+<%- include('partials/footer.ejs'); -%> <!-- Include the footer partial, which contains the common footer content -->

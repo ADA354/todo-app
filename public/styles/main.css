@@ -1,0 +1,121 @@
+html {
+  background-color: #e4e9fd; /* Light blue background color */
+  background-image: -webkit-linear-gradient(
+    65deg,
+    #a683e3 50%,
+    #e4e9fd 50%
+  ); /* Gradient background from purple to blue */
+  min-height: 1000px; /* Ensure the minimum height of the HTML element is 1000px */
+  font-family: "helvetica neue"; /* Set default font family */
+}
+
+body {
+  display: flex; /* Enable flexbox for body layout */
+  flex-direction: column; /* Arrange elements in a column */
+  justify-content: stretch; /* Stretch content to fill available space */
+  min-height: 95vh; /* Ensure the body takes up at least 95% of the viewport height */
+}
+
+main {
+  text-align: center; /* Center-align the text inside the main content */
+  flex: 1 0 auto; /* Allow the main content to expand and take up remaining space */
+}
+
+h1 {
+  color: #fff; /* White text color */
+  padding: 10px; /* Padding around the heading */
+}
+
+.box {
+  max-width: 400px; /* Limit the maximum width of the box to 400px */
+  margin: 50px auto; /* Center the box horizontally with a 50px margin at the top */
+  background: white; /* White background for the box */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3); /* Subtle shadow for a lifted effect */
+}
+
+#heading {
+  background-color: #a683e3; /* Purple background for the heading */
+  text-align: center; /* Center-align text in the heading */
+}
+
+form.edit {
+  display: flex; /* Display the edit form in a horizontal row */
+}
+
+.item {
+  min-height: 70px; /* Ensure each item has a minimum height of 70px */
+  display: flex; /* Enable flexbox to align content */
+  align-items: center; /* Vertically center the content */
+  border-bottom: 1px solid #f1f1f1; /* Add a light gray border below each item */
+}
+
+.item:last-child {
+  border-bottom: 0; /* Remove border for the last item in the list */
+}
+
+input[type="checkbox"] {
+  margin: 20px; /* Add spacing around the checkbox */
+  margin-left: 0; /* Remove left margin to align checkbox with the left edge */
+}
+
+p {
+  margin: 0; /* Remove default margin */
+  padding: 20px 0; /* Add vertical padding */
+  font-size: 20px; /* Set font size for paragraph text */
+  color: #00204a; /* Dark blue text color */
+}
+
+form {
+  text-align: center; /* Center the form's content */
+  margin-left: 20px; /* Add a left margin for spacing */
+}
+
+button.add {
+  min-height: 50px; /* Set a minimum height of 50px for the button */
+  width: 50px; /* Make the button width equal to the height for a round shape */
+  border-radius: 50%; /* Make the button round */
+  border-color: transparent; /* Remove border color */
+  background-color: #a683e3; /* Purple background color */
+  color: #fff; /* White text color */
+  font-size: 30px; /* Large font size for the plus symbol */
+  border-width: 0; /* Remove the button's border */
+}
+
+button.edit {
+  margin-left: 0px; /* No left margin */
+  margin-right: 20px; /* Add spacing to the right of the edit button */
+  border: none; /* Remove the button's border */
+  background: none; /* No background for the button */
+}
+
+.icon {
+  height: 20px; /* Set the icon's height */
+}
+
+input[type="text"] {
+  text-align: left; /* Align text input content to the left */
+  height: 60px; /* Set height for the text input */
+  top: 10px; /* Position the text input slightly from the top */
+  border: none; /* Remove border around the text input */
+  background: transparent; /* Transparent background for text input */
+  font-size: 20px; /* Set font size */
+  font-weight: 200; /* Use a lighter font weight */
+  width: 80%; /* Make the input take up 80% of the available width */
+}
+
+input[type="text"]:focus {
+  outline: none; /* Remove the default outline when focused */
+  box-shadow: inset 0 -3px 0 0 #a683e3; /* Add a purple underline when focused */
+}
+
+::placeholder {
+  color: lightgray; /* Set placeholder text color to light gray */
+  opacity: 1; /* Ensure the placeholder is fully visible */
+}
+
+footer {
+  flex: 0 0 auto; /* Prevent the footer from growing or shrinking */
+  color: white; /* Set text color to white */
+  text-align: center; /* Center-align the footer content */
+}
